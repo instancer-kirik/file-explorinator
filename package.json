@@ -20,7 +20,7 @@
     "theme": "dark"
   },
   "pricing": "Free",
-  "main": "./out/extension",
+  "main": "./dist/extension",
   "contributes": {
     "viewsContainers": {
             "activitybar": [
