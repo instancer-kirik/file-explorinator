@@ -25,9 +25,12 @@ class FileExplorerProvider implements vscode.TreeDataProvider<FileNode> {
     private _onDidChangeTreeData: vscode.EventEmitter<FileNode | undefined | null | void> = new vscode.EventEmitter<FileNode | undefined | null | void>();
     readonly onDidChangeTreeData: vscode.Event<FileNode | undefined | null | void> = this._onDidChangeTreeData.event;
 
+    private cache: { [key: string]: FileNode[] } = {};
+
     constructor(private workspaceRoot: string) { }
 
     refresh(): void {
+        this.cache = {}; // Clear cache
         this._onDidChangeTreeData.fire();
     }
 
@@ -35,46 +38,57 @@ class FileExplorerProvider implements vscode.TreeDataProvider<FileNode> {
         return element;
     }
 
-    getChildren(element?: FileNode): Thenable<FileNode[]> {
+    async getChildren(element?: FileNode): Promise<FileNode[]> {
         if (!this.workspaceRoot) {
             vscode.window.showInformationMessage('No workspace folder open');
-            return Promise.resolve([]);
+            return [];
         }
 
-        if (element) {
-            return Promise.resolve(this.getFiles(element.resourceUri.fsPath));
+        const dir = element ? element.resourceUri.fsPath : this.workspaceRoot;
+
+        if (this.cache[dir]) {
+            return this.cache[dir];
         } else {
-            return Promise.resolve(this.getFiles(this.workspaceRoot));
+            const files = await this.getFiles(dir);
+            this.cache[dir] = files;
+            return files;
         }
     }
 
-    private getFiles(dir: string): FileNode[] {
+    private async getFiles(dir: string): Promise<FileNode[]> {
         if (!fs.existsSync(dir)) {
             return [];
         }
 
-        const files = fs.readdirSync(dir);
-        const nodes: FileNode[] = files.map(file => {
+        const files = await fs.promises.readdir(dir);
+        const nodes: FileNode[] = await Promise.all(files.map(async file => {
             const filePath = path.join(dir, file);
-            const stat = fs.statSync(filePath);
+            const stat = await fs.promises.stat(filePath);
             const node = new FileNode(vscode.Uri.file(filePath), stat.isDirectory(), stat.mtime);
 
             if (node.isDirectory) {
-                const subFiles = this.getFiles(filePath);
-                if (subFiles.length > 0) {
-                    const latestSubFile = subFiles.reduce((latest, current) => {
-                        return latest.modifiedTime > current.modifiedTime ? latest : current;
-                    });
-                    node.modifiedTime = latestSubFile.modifiedTime > node.modifiedTime ? latestSubFile.modifiedTime : node.modifiedTime;
-                }
+                node.modifiedTime = await this.getLatestModifiedTime(filePath);
             }
 
             return node;
-        });
+        }));
 
         // Sort by last modified date
         nodes.sort((a, b) => b.modifiedTime.getTime() - a.modifiedTime.getTime());
         return nodes;
+    }
+
+    private async getLatestModifiedTime(dir: string): Promise<Date> {
+        const subFiles = await fs.promises.readdir(dir);
+        const subFileStats = await Promise.all(subFiles.map(async subFile => {
+            const subFilePath = path.join(dir, subFile);
+            const stat = await fs.promises.stat(subFilePath);
+            return stat.isDirectory() ? await this.getLatestModifiedTime(subFilePath) : stat.mtime;
+        }));
+
+        return subFileStats.reduce((latest, current) => {
+            return latest > current ? latest : current;
+        }, new Date(0));
     }
 
     openResource(resource: vscode.Uri): void {
@@ -92,5 +106,10 @@ class FileNode extends vscode.TreeItem {
         this.tooltip = `${this.resourceUri.fsPath} - Last Modified: ${this.modifiedTime.toLocaleString()}`;
         this.description = this.modifiedTime.toLocaleString();
         this.contextValue = isDirectory ? 'folder' : 'file';
+        this.command = isDirectory ? undefined : {
+            command: 'fileExplorer.openFile',
+            title: 'Open File',
+            arguments: [this.resourceUri]
+        };
     }
 }
