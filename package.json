@@ -11,10 +11,16 @@
   "categories": [
     "Other"
   ],
+  "icon": "images/icon.png",
   "activationEvents": [
        
     ],
-  "main": "./dist/extension.js",
+    "galleryBanner": {
+    "color": "#C80000",
+    "theme": "dark"
+  },
+  "pricing": "Free",
+  "main": "./out/extension",
   "contributes": {
     "viewsContainers": {
             "activitybar": [
@@ -71,5 +77,16 @@
     "@vscode/test-cli": "^0.0.9",
     "@vscode/test-electron": "^2.4.0",
     "prettier": "^2.2.1"
-  }
+  },
+  
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "bugs": {
+    "url": "https://github.com/instancer-kirik/file-explorinator/issues",
+    "email": "kirik@instance.select"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instancer-kirik/file-explorinator.git"
+  },
+  "homepage": "https://github.com/instancer-kirik/file-explorinator/blob/master/README.md"
 }
