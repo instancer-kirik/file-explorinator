@@ -1,0 +1,34 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <pattern x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse" viewBox="0 0 100 100" id="pattern-0">
+      <rect x="0" y="0" width="50" height="100" style="fill: black;"></rect>
+    </pattern>
+    <pattern id="pattern-0-0" patternTransform="matrix(1, 0, 0, 1, 219.768005, 258.633003)" xlink:href="#pattern-0"></pattern>
+  </defs>
+  <rect x="31.33" y="301.648" width="64.578" height="166.88" rx="3" ry="3" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);"></rect>
+  <g>
+    <rect x="41.56" y="137.468" width="111.253" height="21.1" rx="3" ry="3" style="stroke: rgb(28, 21, 21); fill: rgb(165, 165, 165);"></rect>
+    <rect x="31.33" y="147.059" width="450.767" height="322.251" rx="3" ry="3" style="stroke: rgb(28, 21, 21); fill: rgb(165, 165, 165);"></rect>
+  </g>
+  <rect x="47.143" y="201.774" width="71.611" height="18.592" rx="3" ry="3" style="stroke: rgb(0, 0, 0); fill: rgb(115, 115, 115);"></rect>
+  <rect x="42.028" y="212.283" width="141.304" height="257.056" rx="3" ry="3" style="stroke: rgb(0, 0, 0); fill: rgb(115, 115, 115);"></rect>
+  <rect x="189.258" y="314.436" width="51.79" height="14.706" rx="3" ry="3" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);"></rect>
+  <rect x="278.133" y="267.121" width="58.824" height="12.788" rx="3" ry="3" style="stroke: rgb(0, 0, 0); fill: rgb(183, 183, 183);"></rect>
+  <rect x="196.291" y="233.872" width="70.972" height="233.376" rx="3" ry="3" style="fill: rgb(153, 142, 141); stroke: rgb(255, 0, 0);"></rect>
+  <rect x="184.782" y="320.83" width="84.399" height="147.698" rx="3" ry="3" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);"></rect>
+  <rect x="268.542" y="272.876" width="213.555" height="196.931" rx="3" ry="3" style="stroke: rgb(0, 0, 0); fill: rgb(183, 183, 183);"></rect>
+  <rect x="330.563" y="162.901" width="140.026" height="90.793" rx="3" ry="3" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);"></rect>
+  <rect x="356.388" y="173.132" width="35.806" height="11.509" rx="3" ry="3" style="stroke: rgb(0, 0, 0); fill: rgb(218, 181, 85); stroke-width: 2px;"></rect>
+  <rect x="356.777" y="202.543" width="28.772" height="10.87" rx="3" ry="3" style="stroke: rgb(0, 0, 0); fill: rgb(218, 181, 85); stroke-width: 2px;"></rect>
+  <rect x="339.514" y="172.492" width="17.263" height="74.808" rx="3" ry="3" style="stroke: rgb(0, 0, 0); fill: rgb(218, 181, 85); stroke-width: 2px;"></rect>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px; stroke: rgb(218, 181, 85); white-space: pre;" x="374.041" y="238.349" transform="matrix(1.724755, 0, 0, 1.233673, -283.284637, -47.581802)">REE</text>
+  <path style="stroke: rgb(88, 17, 17); fill: url(#pattern-0-0); paint-order: stroke markers; fill-opacity: 0.44; fill-rule: evenodd; stroke-opacity: 0.25; stroke-miterlimit: 1; stroke-linecap: square; stroke-linejoin: bevel;" d="M 232.673 88.355 L 231.863 453.911"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-opacity: 0.39;" d="M -93.166 256.949 L 490.427 257.759"></path>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(255, 83, 0);" cx="232.318" cy="257.448" rx="0.435" ry="0.435"></ellipse>
+  <polyline style="stroke-width: 4px; stroke: rgb(28, 21, 21); fill: rgb(165, 165, 165);" points="228.41 263.739 232.317 260.133 236.224 263.739"></polyline>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="40.8" y="37.143" transform="matrix(0.46305, 0, 0, 0.970679, 34.004131, 253.554672)">Make cool things, <tspan x="40.79999923706055" dy="1em">​</tspan>and support those <tspan x="40.79999923706055" dy="1em">​</tspan>that make cool things<tspan x="40.79999923706055" dy="1em">​</tspan><tspan x="40.79999923706055" dy="1em">​</tspan><tspan x="40.79999923706055" dy="1em">​</tspan><tspan x="40.79999923706055" dy="1em">​</tspan></text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="2.84" y="26.205" transform="matrix(1.911953, 0, 0, 2.16, -2.589945, -0.543312)">File Explorinator</text>
+  <text style="fill: rgb(161, 144, 144); font-family: Arial, sans-serif; font-size: 28px; white-space: pre;" x="160.229" y="80.544" transform="matrix(2.808075, 0, 0, 3.223583, -408.094452, -129.377792)">$Instancer</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="292.488" y="322.091"><tspan x="292.4880065917969" dy="1em">​</tspan></text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px; opacity: 0.9;" x="323.047" y="275.648" transform="matrix(0.002442, 0, 0, 0.547414, 329.049316, 102.47271)">Secret</text>
+</svg>
